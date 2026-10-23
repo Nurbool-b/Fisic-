@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Снаряд ұшуы — симулятор</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>Снаряд ұшуы</h1>
+  <p class="lead">Бұрыш пен жылдамдықты таңда да, снарядты нысанаға тигіз. Үзік сызық — формуламен есептелген траектория.</p>
+
+  <canvas id="c" aria-label="Снаряд траекториясы"></canvas>
+
+  <div class="msg" id="msg">Нысана жерде. Атып жіберуге дайынсың.</div>
+
+  <div class="stats">
+    <div><span>Қашықтық</span><b id="s-range">0 м</b></div>
+    <div><span>Ең биік нүкте</span><b id="s-h">0 м</b></div>
+    <div><span>Ұшу уақыты</span><b id="s-t">0 с</b></div>
+    <div><span>Нысанаға тию</span><b id="s-hits">0 / 0</b></div>
+  </div>
+
+  <section class="controls card">
+    <label>Бұрыш α <output id="o-ang">45°</output>
+      <input id="ang" type="range" min="5" max="85" step="1" value="45"></label>
+    <label>Бастапқы жылдамдық v₀ <output id="o-spd">30 м/с</output>
+      <input id="spd" type="range" min="5" max="60" step="1" value="30"></label>
+    <label>Бастапқы биіктік h <output id="o-hgt">0 м</output>
+      <input id="hgt" type="range" min="0" max="30" step="1" value="0"></label>
+    <label>Планета (g)
+      <select id="grav">
+        <option value="9.8">Жер — 9,8 м/с²</option>
+        <option value="1.6">Ай — 1,6 м/с²</option>
+        <option value="3.7">Марс — 3,7 м/с²</option>
+        <option value="24.8">Юпитер — 24,8 м/с²</option>
+      </select></label>
+    <label class="check"><input id="theory" type="checkbox" checked> Теориялық траекторияны көрсету</label>
+  </section>
+
+  <div class="btns">
+    <button class="btn" id="fire">Атып жіберу</button>
+    <button class="btn alt" id="pause">Тоқтату</button>
+    <button class="btn alt" id="clear">Тазалау</button>
+    <button class="btn alt" id="target">Жаңа нысана</button>
+  </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
